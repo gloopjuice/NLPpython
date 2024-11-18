@@ -1,0 +1,2 @@
+# NLPpython
+python uzdevumi
