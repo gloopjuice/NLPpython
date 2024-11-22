@@ -148,7 +148,19 @@ print(summary)
 
 # Uzdevums 7
 def task_7():
-    print("šobrīd vēl taisu")
+    words = input("Enter words separated by commas (e.g., māja, dzīvoklis, jūra): ").split(',')
+    words = [word.strip() for word in words]
+    
+    print("\nWord Embeddings (Vector Previews):")
+    for word in words:
+        token = nlp(word)
+        print(f"Vector for '{word}': {token.vector[:5]}...")
+    print("\nSemantic Similarity Between Words:")
+    for i in range(len(words)):
+        for j in range(i + 1, len(words)):
+            word1, word2 = words[i], words[j]
+            similarity = nlp(word1).similarity(nlp(word2))
+            print(f"Similarity between '{word1}' and '{word2}': {similarity:.4f}")
 
 # Uzdevums 8: Personu un organizāciju atpazīšana
 def task_8():
